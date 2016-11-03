@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+resources :comments
+  resources :activities do
+    resources :comments
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   # resources :users
@@ -16,9 +21,8 @@ Rails.application.routes.draw do
   get 'page/batches'
 
   get 'page/contact'
-
-  devise_for :users
   root 'page#home'
+  devise_for :users
   resources :users
   # resources :users, only: [:index, :show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

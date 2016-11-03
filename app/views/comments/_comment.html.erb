@@ -1,0 +1,15 @@
+<%= form_for(comment) do %>
+	<div class="comments_wrapper clearfix">
+		<div class="pull-left">
+			<strong><%= comment.body %></strong><br>
+			<small>Commented <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%=link_to comment.user.name, comment.user %></small>
+			<br><br>
+		</div>
+
+		<div class="btn-group pull-right">
+			<% if comment.user == current_user -%>
+				<%= link_to '', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
+			<% end %>
+		</div>
+	</div>
+<% end %>

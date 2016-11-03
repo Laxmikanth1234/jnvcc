@@ -3,7 +3,18 @@
     <div class="col-sm-3 well">
       <div class="well">
         <p><a href="#">My Profile</a></p>
-        <%= image_tag(current_user.avatar.url(:thumb), class: "img-circle")  %>
+
+         <%if current_user.avatar? %>
+          <%= image_tag(current_user.avatar.url(:thumb), class: "img-circle" , height: "150", width: "170 ")%>
+         <% else %>
+          <%if current_user.gender == "false"%>
+            <%= image_tag("/images/boy.png", class: ".img-rounded", height: "150", width: "170")%>
+          <%else%>
+            <%= image_tag("/images/girl.png", class: ".img-rounded", height: "150", width: "170")%>
+          <%end %>
+         <%end%>
+
+        
         <!-- <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar"> -->
       </div>
       <div class="well">
@@ -32,7 +43,38 @@
         <div class="col-sm-12">
           <div class="panel panel-default text-left">
             <div class="panel-body">
-              <p contenteditable="true">Needs to be added User content here</p>
+              <p contenteditable="true"></p>
+              <p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @user.date_of_birth %>
+</p>
+<p>
+  <strong>Batch:</strong>
+  <%= @user.batch %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
               <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
               </button>

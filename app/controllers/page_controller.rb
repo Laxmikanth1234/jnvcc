@@ -3,14 +3,19 @@ class PageController < ApplicationController
   before_action :authenticate_user!, only: [:members, :mypage, :batches,]
 
   def home
-
-    # if current_user
-    #   redirect_to users_path
-    # end
-
+    @activities = Activity.all
+    if current_user
+    @activity = current_user.activities.build
+    end
   end
 
   def mypage
+    @user = User.find(current_user.id)
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @user }
+    end
   end
 
   def members
@@ -20,6 +25,10 @@ class PageController < ApplicationController
   end
 
   def activities
+    @activities = Activity.all
+    if current_user
+    @activity = current_user.activities.build
+    end
   end
 
   def events
@@ -30,4 +39,10 @@ class PageController < ApplicationController
 
   def contact
   end
+
+   private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def comment_params
+      params.require(:comment).permit(:activity_id, :body, :user_id)
+    end
 end

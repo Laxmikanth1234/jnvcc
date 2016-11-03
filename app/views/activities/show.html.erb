@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @activity.post %>
+</p>
+
+ <div align="left">
+            <%= @activity.comments.count%> Comments
+            </div>
+            <div>
+            <%= render :partial => @activity.comments%>
+            </div>
+            <%=simple_form_for [@activity, Comment.new] do |f|%>
+            <%= f.text_field :body, autofocus: true, class: "form-control" %>
+            <%= f.submit%>
+            <%end%>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

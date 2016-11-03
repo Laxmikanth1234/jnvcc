@@ -1,12 +1,9 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-3 well">
+       <iframe width="250" src="https://www.youtube.com/embed/LUnZtBdWvxs" frameborder="0" allowfullscreen></iframe> 
       <div class="well">
-        <p><a href="#">My Profile</a></p>
-        <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-      </div>
-      <div class="well">
-        <p><a href="#">Interests</a></p>
+        <!-- <p><a href="#">Interests</a></p>
         <p>
           <span class="label label-default">News</span>
           <span class="label label-primary">W3Schools</span>
@@ -14,7 +11,66 @@
           <span class="label label-info">Football</span>
           <span class="label label-warning">Gaming</span>
           <span class="label label-danger">Friends</span>
-        </p>
+        </p> -->
+        <table width="100%">
+        <tr>
+        <td><%= link_to image_tag("/images/1.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 1) %></td>
+        <td><%= link_to image_tag("/images/2.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 2) %></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/3.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 3) %></td>
+        <td><%= link_to image_tag("/images/4.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 4) %></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/5.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 5) %></td>
+        <td><%= link_to image_tag("/images/6.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 6) %></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/7.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 7) %></td>
+        <td><%= link_to image_tag("/images/8.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 8) %></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/9.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 9) %></td>
+        <td><%= link_to image_tag("/images/10.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 10) %></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/11.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 11) %></td>
+        <td><%= link_to image_tag("/images/12.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 12)%></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/13.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 13) %></td>
+        <td><%= link_to image_tag("/images/14.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 14) %></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/15.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 15) %></td>
+        <td><%= link_to image_tag("/images/16.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 16) %></td>
+        </tr>
+         <tr>
+        <td><%= link_to image_tag("/images/17.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 17) %></td>
+        <td><%= link_to image_tag("/images/18.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 18) %></td>
+        </tr>
+          <tr>
+        <td><%= link_to image_tag("/images/19.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 19) %></td>
+        <td><%= link_to image_tag("/images/20.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 20) %></td>
+        </tr>
+          <tr>
+        <td><%= link_to image_tag("/images/21.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 21) %></td>
+        <td><%= link_to image_tag("/images/22.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 22) %></td>
+        </tr>
+          <tr>
+        <td><%= link_to image_tag("/images/23.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 23) %></td>
+        <td><%= link_to image_tag("/images/24.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 24) %></td>
+        </tr>
+          <tr>
+        <td><%= link_to image_tag("/images/25.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 25) %></td>
+        <td><%= link_to image_tag("/images/26.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 26) %></td>
+        </tr>
+          <tr>
+        <td><%= link_to image_tag("/images/27.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 27) %></td>
+        <td><%= link_to image_tag("/images/28.jpg", :width =>"65", class: "img-circle"), users_path(:batch => 28) %></td>
+        </tr>
+       
+        </table>
       </div>
       <div class="alert alert-success fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -27,71 +83,73 @@
     </div>
     <div class="col-sm-7">
     
+    
+
+
+    <%if current_user%>
+    <%= form_for(@activity) do |f| %>
       <div class="row">
         <div class="col-sm-12">
           <div class="panel panel-default text-left">
             <div class="panel-body">
-              <p contenteditable="true">Status: Feeling Blue</p>
-              <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              </button>
+                <div class="form-group">
+                <%= f.text_area :post, autofocus: true, class: "form-control" %>
+                </div>
+              <%= f.submit "Post", class: "btn btn-primary pull-right"%>
             </div>
           </div>
         </div>
       </div>
-      
+      <% end %>
+      <%end%>
+
+
+      <% @activities.order(id: :desc).limit(5).each do |activity| %>
       <div class="row">
         <div class="col-sm-3">
           <div class="well">
-           <p>John</p>
-           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+           <p><%=link_to activity.user.name, activity.user %></p>
+           <%= image_tag(activity.user.avatar.url(:thumb), class: "img-circle", height: "65", width: "65")  %><br>
+           <small><%= time_ago_in_words(activity.created_at) %> ago</small>
           </div>
         </div>
         <div class="col-sm-9">
           <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+            <div class="well">
+              <div class="comments_wrapper clearfix">
+                <div class="pull-left">
+                  <div align="left">
+                    <%= activity.post %>
+                  </div>
+                </div>
+            <div class="btn-group pull-right">
+            <!-- <div align="right"> -->
+            <% if activity.user == current_user -%>
+                <%= link_to '', activity, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
+            <% end %>
+            <!-- </div> -->
+            </div>
+            </div>
+            </div>
+
+            <div align="left">
+            <small><%= activity.comments.count%> Comments</small>
+            <div id="comments">
+            <%= render :partial => activity.comments %>
+            </div>
+            </div>
+           
+            <%if current_user%>
+            <%= simple_form_for [activity, Comment.new]  do |f| -%>
+             <%= f.text_field :body, class: "form-control" %>
+            <% end %>
+            <%end%>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Bo</p>
-           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Jane</p>
-           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Anja</p>
-           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
+      <% end %>
+   
+
     </div>
     <div class="col-sm-2 well">
       <div class="thumbnail">

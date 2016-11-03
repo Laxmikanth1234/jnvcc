@@ -3,8 +3,14 @@ class UsersController < ApplicationController
 before_action :authenticate_user!
 
   def index
-    @users = User.search(params[:search])
+      @users = User.search(params[:search])
+
+     if params[:batch]
+       @users = @users.select {|u| u.batch == params[:batch].to_i}
+     end
+     
   end
+
 
   def show
   	@user = User.find(params[:id])
