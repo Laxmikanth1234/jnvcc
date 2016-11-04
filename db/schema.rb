@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026012921) do
+ActiveRecord::Schema.define(version: 20161104075700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20161026012921) do
     t.datetime "updated_at",  null: false
     t.index ["activity_id"], name: "index_comments_on_activity_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.text     "story"
+    t.datetime "when"
+    t.text     "where"
+    t.text     "contact"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,4 +80,5 @@ ActiveRecord::Schema.define(version: 20161026012921) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
 end
