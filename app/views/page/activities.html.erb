@@ -23,7 +23,17 @@
         <div class="col-sm-2">
           <div class="well">
            <p><%=link_to activity.user.name, activity.user %></p>
-           <%= image_tag(activity.user.avatar.url(:thumb), class: "img-circle", height: "65", width: "65")  %><br>
+
+           <%if current_user.avatar? %>
+          <%= image_tag(current_user.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+         <% else %>
+          <%if current_user.gender == "false"%>
+            <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>
+          <%else%>
+            <%= image_tag("/images/girl.png", class: ".img-rounded", height: "65", width: "65")%>
+          <%end %>
+         <%end%>
+           <br>
            <small><%= time_ago_in_words(activity.created_at) %> ago</small>
           </div>
         </div>
