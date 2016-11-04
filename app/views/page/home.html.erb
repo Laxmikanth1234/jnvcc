@@ -140,7 +140,7 @@
             </div>
            
             <%if current_user%>
-            <%= simple_form_for [activity, Comment.new]  do |f| -%>
+            <%= form_for [activity, Comment.new]  do |f| -%>
              <%= f.text_field :body, class: "form-control" %>
             <% end %>
             <%end%>
