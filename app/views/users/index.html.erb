@@ -1,6 +1,6 @@
 <%- model_class = User -%> 
 <div class="bootstrap">
-
+<%if @users.count != 0 %>
   <h1>Users</h1>
 
 <table class="table table-striped table-bordered">
@@ -52,5 +52,8 @@
   </tbody>
 </table>
 
+<%else%>
+<h1> No one registred yet :( </h1>
+<%end%>
 
 </div>

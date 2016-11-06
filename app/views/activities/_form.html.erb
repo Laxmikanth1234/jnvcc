@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :post %>
-    <%= f.text_area :post %>
-  </div>
+   <div class="form-group">
+              <%= f.label :post %>
+              <%= f.text_area :post, autofocus: true, class: "form-control" %>
+            </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Post", class: "btn btn-primary"  %>
   </div>
 <% end %>

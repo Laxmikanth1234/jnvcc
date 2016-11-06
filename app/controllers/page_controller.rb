@@ -7,6 +7,7 @@ class PageController < ApplicationController
     if current_user
     @activity = current_user.activities.build
     end
+    @event = Event.all
   end
 
   def mypage

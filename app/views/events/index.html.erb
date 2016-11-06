@@ -1,37 +1,127 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Story</th>
-      <th>When</th>
-      <th>Where</th>
-      <th>Contact</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.story %></td>
-        <td><%= event.when %></td>
-        <td><%= event.where %></td>
-        <td><%= event.contact %></td>
-        <td><%= event.user %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<table width="100%">
+  <tr><td><h1>Events</h1></td> 
+  <%if current_user %>
+  <td align="right"><button class = "btn btn-primary btn-sm" data-toggle = "modal" data-target = "#myModal">
+   New Event
+</button></td>
+<%end%>
+</tr>
 </table>
 
-<br>
+      <% @events.order(id: :desc).each do |event| %>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="well">
+          <div align="center">
+           <p><%=link_to event.user.name, event.user %></p>
+           <%if event.user.avatar? %>
+          <%= image_tag(event.user.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+         <% else %>
+          <%if event.user.gender == "false"%>
+            <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>
+          <%else%>
+            <%= image_tag("/images/girl.png", class: ".img-rounded", height: "65", width: "65")%>
+          <%end %>
+         <%end%>
+           <br>
+           <small><%= time_ago_in_words(event.created_at) %> ago</small>
+          </div>
+          </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="well">
+              <div class="comments_wrapper clearfix">
+                <div class="pull-left">
+                  <div align="left">
 
-<%= link_to 'New Event', new_event_path %>
+                    <table width="100%">
+                      <tr>
+                        <td>
+                          <table  class = "table table-striped">
+                     <% if event.name != "" %> <tr><td >Event Name:</td><td><%= event.name %></td></tr> <%end%>
+                     <% if event.story != ""%> <tr><td>Description:</td><td><%= event.story %></td></tr> <%end%>
+                     <% if event.when != "" %> <tr><td>When:</td><td><%= event.when.strftime("%A, %d %b %Y %I:%M%p")%></td></tr> <%end%>
+                     <% if event.where != "" %> <tr><td>Where:</td><td><%= event.where %></td></tr> <%end%>
+                     <% if event.contact != ""  %> <tr><td>Contact:</td><td><%= event.contact %></td></tr> <%end%>
+                          </table>
+                        </td>
+                        <%if event.avatar?%>
+                        <td>
+                          <%= image_tag(event.avatar.url(:thumb), class: "img-rounded" , height: "200", width: "200 ")%>
+                        </td>
+                        <%end%>
+                      </tr>
+                    </table>
+                    
+
+                  </div>
+                </div>
+            <div class="btn-group pull-right">
+            <!-- <div align="right"> -->
+            <% if event.user == current_user  -%>
+                <%= link_to '', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
+            <% end %>
+            <!-- </div> -->
+            </div>
+            </div>
+            </div>
+           
+          </div>
+        </div>
+      <% end %>
+   
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<%if current_user %>
+<div class = "modal fade" id = "myModal" tabindex = "-1" role = "dialog" 
+   aria-labelledby = "myModalLabel" aria-hidden = "true">
+   
+   <div class = "modal-dialog">
+      <div class = "modal-content">
+         
+         <div class = "modal-header">
+            <button type = "button" class = "close" data-dismiss = "modal" aria-hidden = "true">
+                  &times;
+            </button>
+            
+            <h4 class = "modal-title" id = "myModalLabel">
+               New Event
+            </h4>
+         </div>
+         
+         <div class = "modal-body">
+
+
+
+        <%= render 'form', event: @event %>
+         
+         
+         </div>
+         
+         <div class = "modal-footer">
+            <button type = "button" class = "btn btn-default" data-dismiss = "modal">
+               Close
+            </button>
+              
+         </div>
+        
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+  
+</div><!-- /.modal -->
+<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
