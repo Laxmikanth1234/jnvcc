@@ -67,10 +67,29 @@
   <strong>Mobile:</strong>
   <%= @user.mobile %>
 </p>
-
+<p>
+  <strong>Industry:</strong>
+  <%= @user.industry %>
+</p>
+<p>
+  <strong>Current Location:</strong>
+  <%= @user.current_location %>
+</p>
+<p>
+  <strong>Education Qualification:</strong>
+  <%= @user.education_qualification %>
+</p>
+<p>
+  <strong>Profession:</strong>
+  <%= @user.profession %>
+</p>
 <p>
   <strong>Address:</strong>
   <%= @user.address %>
+</p>
+<p>
+  <strong>Aboutme:</strong>
+  <%= @user.aboutme %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
@@ -92,13 +111,18 @@
         </div>
       </div>
     </div>
+<% if @event.count != 0%>
     <div class="col-sm-2 well">
       <div class="thumbnail">
         <p>Upcoming Events:</p>
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Fri. 27 November 2015</p>
-        <button class="btn btn-primary">Info</button>
+        <%if @event.last.avatar? %>
+          <%= image_tag(@event.last.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+         <% else %>
+           <!--  <%= image_tag("/images/navodayans_small.png", class: ".img-rounded", height: "65", width: "65")%> -->
+         <%end%>
+        <p><strong><%=@event.last.name%></strong></p>
+        <p><%= @event.last.when.strftime("%A, %d %b %Y %I:%M%p")%></p>
+        <%=link_to "Info", events_path, class:"btn btn-primary"%>
       </div>
       <div class="well">
         <p>ADS</p>
@@ -107,6 +131,7 @@
         <p>ADS</p>
       </div>
     </div>
+    <%end%>
   </div>
 </div>
 

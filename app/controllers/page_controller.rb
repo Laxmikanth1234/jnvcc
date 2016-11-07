@@ -17,6 +17,8 @@ class PageController < ApplicationController
       format.html 
       format.json { render json: @user }
     end
+
+    @event = Event.all
   end
 
   def members

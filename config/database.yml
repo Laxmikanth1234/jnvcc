@@ -45,8 +45,8 @@ production:
   reconnect: false
   database: jnvcc_production
   pool: 5
-  username: jnvcc
-  password: jnvcc
+  username: 
+  password: 
 
 
   # The specified database role being used to connect to postgres.

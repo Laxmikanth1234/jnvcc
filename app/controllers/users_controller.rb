@@ -19,6 +19,8 @@ before_action :authenticate_user!
       format.html 
       format.json { render json: @user }
   	end
+
+    @event = Event.all
   end
 
   def edit
