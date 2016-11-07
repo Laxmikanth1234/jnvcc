@@ -167,9 +167,9 @@
       <div class="thumbnail">
         <p>Upcoming Events:</p>
         <%if @event.last.avatar? %>
-          <%= image_tag(@event.last.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+          <%= image_tag(@event.last.avatar.url(:thumb), class: "img-rounded" , height: "70", width: "70")%>
          <% else %>
-           <!--  <%= image_tag("/images/navodayans_small.png", class: ".img-rounded", height: "65", width: "65")%> -->
+           <!--  <%= image_tag("/images/navodayans_small.png", class: "img-rounded", height: "70", width: "70")%> -->
          <%end%>
         <p><strong><%=@event.last.name%></strong></p>
         <p><%= @event.last.when.strftime("%A, %d %b %Y %I:%M%p")%></p>
