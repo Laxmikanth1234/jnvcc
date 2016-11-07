@@ -40,7 +40,7 @@ test:
   min_messages: warning
 
 production:
-  adapter: postgres
+  adapter: postgresql
   encoding: utf8
   reconnect: false
   database: jnvcc_production
