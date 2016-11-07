@@ -39,12 +39,12 @@ test:
   password: jnvcc
   min_messages: warning
 
-# production:
-#   adapter: postgresql
-#   database: jnvcc_production
-#   username:
-#   password:
-#   min_messages: warning
+production:
+  adapter: postgresql
+  database: jnvcc_production
+  username: jnvcc
+  password: jnvcc
+  min_messages: warning
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
