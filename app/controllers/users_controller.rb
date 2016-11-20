@@ -24,7 +24,12 @@ before_action :authenticate_user!
   end
 
   def edit
+     if (params[:id]).to_i == current_user.id.to_i || current_user.admin?
   	 @user = User.find params[:id]
+     else
+      redirect_to page_home_path
+     end
+
   end
 
   def update

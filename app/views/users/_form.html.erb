@@ -1,6 +1,20 @@
 
   <div class="panel-body">
     <%= form_for @user, :html => { :class => 'form-horizontal user_form' } do |f| %>
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
     <div class="form-group">
         <%= f.label :name %>
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
@@ -66,6 +80,8 @@
         <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i>
         <%= f.password_field :current_password, class: "form-control" %>
       </div> -->
+      <% if @user == current_user || current_user.admin?%>
       <%= f.submit t('.update', :default => "Update"), class: "btn btn-primary" %>
+      <%end%>
     <% end %>
 </div>
