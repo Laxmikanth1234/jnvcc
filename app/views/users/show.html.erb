@@ -4,7 +4,7 @@
       <div class="well">
         <p> <%= @user.name %></p>
          <%if @user.avatar? %>
-          <%= image_tag(@user.avatar.url(:thumb), class: "img-circle" , height: "150", width: "170 ")%>
+          <%= image_tag(@user.avatar.url(:thumb),  class: "img-rounded" , height: "220", width: "220")%>
          <% else %>
           <%if @user.gender == "false"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "150", width: "170")%>
