@@ -28,7 +28,7 @@ class User < ApplicationRecord
   has_many :events
 
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "600x600>", :thumb => "300x300#" }, :default_url => "/images/:style/missing.png"
