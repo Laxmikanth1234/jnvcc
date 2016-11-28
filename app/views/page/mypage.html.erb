@@ -18,14 +18,23 @@
         <!-- <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar"> -->
       </div>
       <div class="well">
-        <p><a href="#">Interests</a></p>
+        <p><strong>Social</strong></p>
         <p>
-          <span class="label label-default">News</span>
+        <%if @user.facebook != ""%>
+          <a href=<%=@user.facebook%> target="_blank"><%= image_tag("/images/facebook.png", :width =>"65", class: "img-circle") %></a>
+          <%end%>
+          <%if @user.twitter != ""%>
+          <a href=<%=@user.twitter%> target="_blank"><%= image_tag("/images/Twitter.png", :width =>"53", class: "img-circle") %></a>
+          <%end%>
+          <%if @user.linkedin != ""%>
+          <a href=<%=@user.linkedin%> target="_blank"><%= image_tag("/images/linkedin.png", :width =>"58", class: "img-circle") %></a>
+          <%end%>
+          <!-- <span class="label label-default">News</span>
           <span class="label label-primary">W3Schools</span>
           <span class="label label-success">Labels</span>
           <span class="label label-info">Football</span>
           <span class="label label-warning">Gaming</span>
-          <span class="label label-danger">Friends</span>
+          <span class="label label-danger">Friends</span> -->
         </p>
       </div>
       <div class="alert alert-success fade in">
@@ -44,19 +53,20 @@
           <div class="panel panel-default text-left">
             <div class="panel-body">
               <p contenteditable="true"></p>
-              <table class = "table table-striped">
-                  <tr><td><strong>Name</strong></td><td><%= @user.name %></td></tr>
+               <table class = "table table-striped">
+                  <tr><td><strong>Name</strong></td><td><%= @user.name %> <%=@user.sirname%></td></tr>
                   <tr><td><strong>Email</strong></td><td><%= @user.email %></td></tr>
                   <tr><td><strong>DOB</strong></td><td><%= @user.date_of_birth %></td></tr>
                   <tr><td><strong>Batch</strong></td><td><%= @user.batch %></td></tr>
                   <tr><td><strong>Mobile</strong></td><td><%= @user.mobile %></td></tr>
-                  <tr><td><strong>Industry</strong></td><td><%= @user.industry %></td></tr>
                   <tr><td><strong>Current Location</strong></td><td><%= @user.current_location %></td></tr>
                   <tr><td><strong>Qualification</strong></td><td><%= @user.education_qualification %></td></tr>
                   <tr><td><strong>Profession</strong></td><td><%= @user.profession %></td></tr>
+                  <tr><td><strong>Industry</strong></td><td><%= @user.industry %></td></tr>
+                  <tr><td><strong>Designation</strong></td><td><%= @user.designation %></td></tr>
                   <tr><td><strong>Address</strong></td><td><%= @user.address %></td></tr>
                   <tr><td><strong>Aboutme</strong></td><td><%= @user.aboutme %></td></tr>
-              </table>
+                </table>
 
               <%= link_to 'Edit', edit_user_path(@user) %> |
               <%= link_to 'Back', users_path %>

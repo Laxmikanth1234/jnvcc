@@ -17,6 +17,7 @@
 #  gender, 						   :string
 #  active                          :boolean          default(FALSE) need to add
 #  industry                        :string(255) 
+#  :sirname, :designation, :facebook, :twitter, :linkedin, :rep?, 
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null
 
@@ -34,7 +35,7 @@ class User < ApplicationRecord
 
   has_attached_file :avatar, :styles => { :medium => "600x600>", :thumb => "300x300#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates :name, :date_of_birth, :gender, :batch, :education_qualification,:current_location,:profession,:industry, presence: true
+  validates :name, :sirname, :date_of_birth, :gender, :batch, :education_qualification,:current_location,:profession,:industry, presence: true
   validates :email, uniqueness: true
 
   BATCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 , 25, 26, 27,]

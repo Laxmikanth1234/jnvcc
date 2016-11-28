@@ -19,6 +19,10 @@
         <%= f.label :name %>
         <%= f.text_field :name, autofocus: true, class: "form-control" %>
       </div>
+       <div class="form-group">
+        <%= f.label :sirname %>
+        <%= f.text_field :sirname, autofocus: true, class: "form-control" %>
+      </div>
       <div class="form-group">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
@@ -57,12 +61,28 @@
         <%= f.text_field :industry, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= f.label :designation %>
+        <%= f.text_field :designation, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.label :address %>
         <%= f.text_area :address, autofocus: true, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :aboutme %>
         <%= f.text_area :aboutme, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :facebook %>
+        <%= f.text_field :facebook, autofocus: true, class: "form-control", placeholder: "https://www.facebook.com/yourTag" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :twitter %>
+        <%= f.text_field :twitter, autofocus: true, class: "form-control",  placeholder: "https://twitter.com/yourTag"  %>
+      </div>
+      <div class="form-group">
+        <%= f.label :linkedin %>
+        <%= f.text_field :linkedin, autofocus: true, class: "form-control", placeholder: "https://in.linkedin.com/in/yourTag" %>
       </div>
       <div class="form-group">
         <%= f.label :avatar,class: 'control-label'  %>
