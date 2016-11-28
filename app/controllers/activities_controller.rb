@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new,:show, :edit, :update, :destroy]
+  
 
   # GET /activities
   # GET /activities.json
@@ -36,7 +36,7 @@ class ActivitiesController < ApplicationController
         format.html { redirect_to page_home_path, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @activity }
       else
-        format.html { render :new }
+        format.html { redirect_to page_home_path}
         format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
     end

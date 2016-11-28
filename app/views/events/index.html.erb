@@ -34,9 +34,9 @@
                 <div class="pull-left">
                   <div align="left">
 
-                    <table width="100%">
+                    <table style="width: 100%;">
                       <tr>
-                        <td>
+                        <td style="width: 70%;">
                           <table  class = "table table-striped">
                      <% if event.name != "" %> <tr><td >Event Name:</td><td><%= event.name %></td></tr> <%end%>
                      <% if event.story != ""%> <tr><td>Description:</td><td><%= event.story %></td></tr> <%end%>
@@ -46,8 +46,8 @@
                           </table>
                         </td>
                         <%if event.avatar?%>
-                        <td>
-                          <%= image_tag(event.avatar.url(:thumb), class: "img-rounded" , height: "200", width: "200 ")%>
+                        <td style="width: 30%; float: right; ">
+                          <%= image_tag(event.avatar.url(:thumb), class: "img-rounded" , height: "200", width: "200 ")%> 
                         </td>
                         <%end%>
                       </tr>

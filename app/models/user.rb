@@ -26,6 +26,7 @@ class User < ApplicationRecord
   # attr_accessor :name, :date_of_birth, :gender, :batch
   has_many :activities
   has_many :events
+  has_many :testimonials
 
 
   devise :database_authenticatable, :registerable, :registerable, :confirmable,

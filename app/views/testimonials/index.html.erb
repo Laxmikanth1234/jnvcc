@@ -1,0 +1,101 @@
+
+<%if @testimonials.count == 0 %>
+<h1>Be a first person to share your views how Alumini helped to you</h1>
+<%else%>
+<h1>Alumni Testimonials</h1>
+<%end%>
+
+
+<%if current_user%>
+    <%= form_for(@testimonial) do |f| %>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="panel panel-default text-left">
+            <div class="panel-body">
+                <div class="form-group">
+                <%= f.text_area :testimonial, autofocus: true, class: "form-control" %>
+                </div>
+              <%= f.submit "Post", class: "btn btn-primary pull-right"%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <%end%>
+
+
+      <% @testimonials.order(id: :desc).each do |testimonial| %>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="well">
+          <div align="center">
+           <p><%=link_to testimonial.user.name, testimonial.user %></p>
+
+           <%if testimonial.user.avatar? %>
+          <%= image_tag(testimonial.user.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+         <% else %>
+          <%if testimonial.user.gender == "false"%>
+            <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>
+          <%else%>
+            <%= image_tag("/images/girl.png", class: ".img-rounded", height: "65", width: "65")%>
+          <%end %>
+         <%end%>
+           <br>
+           <small><%= time_ago_in_words(testimonial.created_at) %> ago</small>
+          </div>
+          </div>
+        </div>
+        <div class="col-sm-10">
+          <div class="well">
+                    
+              <div class="comments_wrapper clearfix">
+                <div class="pull-left">
+                  <div align="left">
+                    <%= testimonial.testimonial %>
+                  </div>
+                </div>
+            <div class="btn-group pull-right">
+            <!-- <div align="right"> -->
+            <% if testimonial.user == current_user -%>
+                <%= link_to '', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash" %>
+            <% end %>
+            <!-- </div> -->
+            </div>
+            </div>
+            
+          
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+
+
+
+
+
+
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Testimonial</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @testimonials.each do |testimonial| %>
+      <tr>
+        <td><%= testimonial.testimonial %></td>
+        <td><%= link_to 'Show', testimonial %></td>
+        <td><%= link_to 'Edit', edit_testimonial_path(testimonial) %></td>
+        <td><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Testimonial', new_testimonial_path %> -->
