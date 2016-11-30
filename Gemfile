@@ -5,6 +5,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'rails_admin'
 gem 'paperclip', '~> 4.1'
+gem 'aws-sdk'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
