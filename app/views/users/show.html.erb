@@ -18,13 +18,13 @@
       <div class="well">
        <p><strong>Social</strong></p>
         <p>
-        <%if @user.facebook != ""%>
+        <%if @user.facebook%>
           <a href=<%=@user.facebook%> target="_blank"><%= image_tag("/images/facebook.png", :width =>"65", class: "img-circle") %></a>
           <%end%>
-          <%if @user.twitter != ""%>
+          <%if @user.twitter%>
           <a href=<%=@user.twitter%> target="_blank"><%= image_tag("/images/Twitter.png", :width =>"53", class: "img-circle") %></a>
           <%end%>
-          <%if @user.linkedin != ""%>
+          <%if @user.linkedin%>
           <a href=<%=@user.linkedin%> target="_blank"><%= image_tag("/images/linkedin.png", :width =>"58", class: "img-circle") %></a>
           <%end%>
         <!-- <p><a href="#">Interests</a></p>
