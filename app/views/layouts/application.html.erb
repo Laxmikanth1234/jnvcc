@@ -91,7 +91,7 @@
 
 
          <%if current_user.avatar? %>
-          <li class="login-img"><%= image_tag(current_user.avatar.url(:thumb), class: "img-circle", height: "30", width: "30")%> <font color="lightgrey"> Hay!!  <b><%= current_user.name %></b></font></li>
+          <li class="login-img"><%= image_tag(current_user.avatar.url(:thumb), class: "img-circle", height: "30", width: "30")%> <font color="lightgrey"> Hey!!  <b><%= current_user.name %></b></font></li>
          <% else %>
           <%if current_user.gender == "false"%>
             <li class="login-img"><%= image_tag("/images/boy.png", class: ".img-rounded", height: "30", width: "30")%> <font color="lightgrey"> Hay!!  <b><%= current_user.name %></b></font></li>
