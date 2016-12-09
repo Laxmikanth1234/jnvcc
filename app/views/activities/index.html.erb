@@ -7,7 +7,7 @@
           <div class="panel panel-default text-left">
             <div class="panel-body">
                 <div class="form-group">
-                <%= f.text_area :post, autofocus: true, class: "form-control" %>
+                <%= f.text_area :post, autofocus: true, class: "form-control", placeholder: "What's on your mind?" %>
                 </div>
               <%= f.submit "Post", class: "btn btn-primary pull-right"%>
             </div>
@@ -66,7 +66,7 @@
            
             <%if current_user%>
             <%= form_for [activity, Comment.new]  do |f| -%>
-             <%= f.text_field :body, class: "form-control" %>
+             <%= f.text_field :body, class: "form-control" , placeholder: "Write a comment..."%>
             <% end %>
             <%end%>
           </div>

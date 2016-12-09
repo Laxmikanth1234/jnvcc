@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save && @comment.body != ""
-        format.html { redirect_to page_home_path, notice: 'Comment was successfully created.' }
+        format.html { redirect_to page_home_path }
+        # format.html { redirect_to page_home_path, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { redirect_to page_home_path, notice: 'Comment shold not blank :)'  }
