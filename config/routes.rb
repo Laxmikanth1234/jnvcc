@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photos
   resources :testimonials
   resources :events
   resources :comments
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get 'page/events'
 
   get 'page/batches'
+  get 'page/photos'
 
   get 'page/contact'
   root 'page#home'

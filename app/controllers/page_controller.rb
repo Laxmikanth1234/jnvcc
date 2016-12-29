@@ -37,10 +37,12 @@ class PageController < ApplicationController
   def events
   end
 
-  def batches
+  def photos
+    @photos =Photo.all
   end
 
   def contact
+    
   end
 
    private
