@@ -30,8 +30,8 @@ new(function(){});var f={md:function(a){return-c.cos(a*c.PI)/2+.5},ld:function(a
 
 
 
-<img data-u="image" src="https://s3.amazonaws.com/jnvcc/photos/avatars/000/000/001/original/"+photo.avatar_file_name />
-<img data-u="thumb" src="https://s3.amazonaws.com/jnvcc/photos/avatars/000/000/001/thumb/"+photo.avatar_file_name />
+<%=image_tag data-u="image" src="https://s3.amazonaws.com/jnvcc/photos/avatars/000/000/001/original/"+photo.avatar_file_name /%>
+<%=image_tag data-u="thumb" src="https://s3.amazonaws.com/jnvcc/photos/avatars/000/000/001/thumb/"+photo.avatar_file_name /%>
 </div>
 <%end%>
 <a data-u="any" href="http://www.jssor.com" style="display:none">Image Gallery</a>
