@@ -4,6 +4,12 @@
 <%if @users.count != 0 %>
   <h1>Users (<%=@users.count%>)</h1>
 
+<% if current_user.admin == true%>
+<%= form_tag import_users_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+<%end%>
 <div class="row">
         <div class="col-sm-12">
           <div class="well">

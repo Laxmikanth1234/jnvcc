@@ -55,7 +55,10 @@ before_action :authenticate_user!
          format.json { head :no_content }
       end
    end
-
+def import
+  User.import(params[:file])
+  redirect_to users_path, notice: "Users imported."
+end
 
 private
     # Use callbacks to share common setup or constraints between actions.

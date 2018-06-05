@@ -36,7 +36,7 @@ class User < ApplicationRecord
   has_attached_file :avatar, :styles => { :medium => "600x600>", :thumb => "300x300#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :name, :sirname, :date_of_birth, :gender, :batch, :education_qualification,:current_location,:profession,:industry, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true 
 
   BATCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 , 25, 26, 27,]
   
@@ -44,7 +44,7 @@ class User < ApplicationRecord
 
    def self.search(search)
    	if search
-   		where("name ILIKE ? OR email ILIKE ? OR current_location ILIKE ? OR education_qualification ILIKE ? OR industry ILIKE ? OR mobile ILIKE ?" , "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")
+   		where("name ILIKE ? OR email ILIKE ? OR current_location ILIKE ? OR education_qualification ILIKE ? OR industry ILIKE ? OR mobile ILIKE ? OR profession ILIKE ?" , "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")
    	else
    		all
    	end
@@ -56,6 +56,33 @@ class User < ApplicationRecord
         super && is_active
    end
 
+  # def self.import(file)
+  #   spreadsheet = open_spreadsheet(file)
+  #   header = spreadsheet.row(1)
+  #   (2..spreadsheet.last_row).each do |i|
+  #   row = Hash[[header, spreadsheet.row(i)].transpose]
+  #   user = find_by_id(row["email"]) || new
+  #   user.attributes = row.to_hash.slice(*accessible_attributes)
+  #   user.save!
+  # end
+  # end
 
+  # def self.open_spreadsheet(file)
+  #   case File.extname(file.original_filename)
+  #   when ".csv" then Csv.new(file.path, nil, :ignore)
+  #   when ".xls" then Excel.new(file.path, nil, :ignore)
+  #   when ".xlsx" then Excelx.new(file.path, nil, :ignore)
+  #   else raise "Unknown file type: #{file.original_filename}"
+  #   end 
+  # end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+    # User.create! row.to_hash 
+    user = find_by(email: row["email"]) || new
+    user.update row.to_hash
+    user.save!
+    end
+  end
 
 end
