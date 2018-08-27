@@ -4,7 +4,7 @@
       <div class="well">
         <p> <%= @user.name %></p>
          <%if @user.avatar? %>
-          <%= image_tag(@user.avatar.url(:thumb),  class: "img-rounded" , height: "220", width: "220")%>
+          <%= image_tag(@user.avatar,  class: "img-rounded", :width=>200, :crop=>"thumb" )%>
          <% else %>
           <%if @user.gender == "false"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "150", width: "170")%>
@@ -96,7 +96,7 @@
       <div class="thumbnail">
         <p>Upcoming Events:</p>
         <%if @event.last.avatar? %>
-          <%= image_tag(@event.last.avatar.url(:thumb), class: "img-rounded" , height: "70", width: "70")%>
+          <%= image_tag(@event.last.avatar, class: "img-rounded" , height: "70", width: "70")%>
          <% else %>
            <!--  <%= image_tag("/images/navodayans_small.png", class: "img-rounded", height: "70", width: "70")%> -->
          <%end%>

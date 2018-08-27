@@ -32,7 +32,7 @@
            <p><%=link_to testimonial.user.name, testimonial.user %></p>
 
            <%if testimonial.user.avatar? %>
-          <%= image_tag(testimonial.user.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+          <%= image_tag(testimonial.user.avatar, class: "img-circle" , height: "65", width: "65 ")%>
          <% else %>
           <%if testimonial.user.gender == "false"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>

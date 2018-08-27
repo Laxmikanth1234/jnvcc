@@ -36,7 +36,7 @@
       <tr>
         <td>
          <%if user.avatar? %>
-          <%=link_to image_tag(user.avatar.url(:thumb), class: ".img-rounded", height: "30", width: "30"), user%>
+          <%=link_to image_tag(user.avatar, class: ".img-rounded", height: "30", width: "30"), user%>
          <% else %>
           <%if user.gender == "false"%>
             <%=link_to image_tag("/images/boy.png", class: ".img-rounded", height: "30", width: "30"), user%>

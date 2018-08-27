@@ -15,7 +15,7 @@
           <div align="center">
            <p><%=link_to event.user.name, event.user %></p>
            <%if event.user.avatar? %>
-          <%= image_tag(event.user.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+          <%= image_tag(event.user.avatar, class: "img-circle" , height: "65", width: "65 ")%>
          <% else %>
           <%if event.user.gender == "false"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>
@@ -47,7 +47,7 @@
                         </td>
                         <%if event.avatar?%>
                         <td>
-                          <%= image_tag(event.avatar.url(:thumb), class: "img-rounded" , height: "200", width: "200 ")%> 
+                          <%= image_tag(event.avatar, class: "img-rounded" , height: "200", width: "200 ")%> 
                         </td>
                         <%end%>
                       </tr>

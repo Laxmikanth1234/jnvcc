@@ -114,7 +114,7 @@
            <p><%=link_to activity.user.name, activity.user %></p>
 
            <%if activity.user.avatar? %>
-          <%= image_tag(activity.user.avatar.url(:thumb), class: "img-circle" , height: "65", width: "65 ")%>
+          <%= image_tag(activity.user.avatar, class: "img-circle" , height: "65", width: "65 ")%>
          <% else %>
           <%if activity.user.gender == "false"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>
@@ -170,7 +170,7 @@
       <div class="thumbnail">
         <p>Upcoming Events:</p>
         <%if @event.last.avatar? %>
-          <%= image_tag(@event.last.avatar.url(:thumb), class: "img-rounded" , height: "70", width: "70")%>
+          <%= image_tag(@event.last.avatar, class: "img-rounded" , height: "70", width: "70")%>
          <% else %>
            <!--  <%= image_tag("/images/navodayans_small.png", class: "img-rounded", height: "70", width: "70")%> -->
          <%end%>

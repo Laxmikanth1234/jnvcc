@@ -4,7 +4,7 @@
 			<strong>
 
 		<%if comment.user.avatar? %>
-          <%= image_tag(comment.user.avatar.url(:thumb), class: "img-circle" , height: "20", width: "20 ")%>
+          <%= image_tag(comment.user.avatar, class: "img-circle" , height: "20", width: "20 ")%>
          <% else %>
           <%if comment.user.gender == "false"%>
             <%= image_tag("/images/boy.png", class: ".img-circle", height: "20", width: "20")%>

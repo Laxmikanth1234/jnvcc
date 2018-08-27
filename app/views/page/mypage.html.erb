@@ -5,7 +5,7 @@
         <p><a href="#">My Profile</a></p>
 
          <%if current_user.avatar? %>
-          <%= image_tag(current_user.avatar.url(:thumb), class: "img-rounded" , height: "220", width: "220 ")%>
+          <%= image_tag(current_user.avatar, class: "img-rounded" , height: "220", width: "220 ")%>
          <% else %>
           <%if current_user.gender == "false"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "150", width: "170")%>
@@ -92,7 +92,7 @@
       <div class="thumbnail">
         <p>Upcoming Events:</p>
         <%if @event.last.avatar? %>
-          <%= image_tag(@event.last.avatar.url(:thumb), class: "img-rounded" , height: "70", width: "70")%>
+          <%= image_tag(@event.last.avatar, class: "img-rounded" , height: "70", width: "70")%>
          <% else %>
            <!--  <%= image_tag("/images/navodayans_small.png", class: "img-rounded", height: "70", width: "70")%> -->
          <%end%>

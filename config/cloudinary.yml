@@ -1,0 +1,9 @@
+development:
+  cloud_name: "navodayans"
+  api_key: "265756865382819"
+  api_secret: "4rB_xkeBkHWXGOKJZJAcIe8utko"
+
+production:
+  cloud_name: "navodayans"
+  api_key: "265756865382819"
+  api_secret: "4rB_xkeBkHWXGOKJZJAcIe8utko"
