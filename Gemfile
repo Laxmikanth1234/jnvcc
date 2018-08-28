@@ -6,7 +6,7 @@ gem 'devise-bootstrap-views'
 gem 'rails_admin'
 gem 'paperclip', '5.0.0'
 # gem 'aws-sdk', '~> 2.3'
-gem 'will_paginate'
+
 
 gem 'carrierwave'
 gem 'cloudinary'
