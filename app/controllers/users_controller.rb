@@ -6,7 +6,7 @@ before_action :authenticate_user!
       @users = User.paginate(:page => params[:page], :per_page => 20).search(params[:search])
 
      if params[:batch]
-       @users = @users.select {|u| u.batch == params[:batch].to_i}
+       @users = @users.select {|u| u.batch == params[:batch].to_i}.paginate(:page => params[:page], :per_page => 100)
      end
      
   end
