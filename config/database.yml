@@ -28,8 +28,8 @@ default: &default
 development:
   adapter: postgresql
   database: jnvcc_development
-  username: shopvox
-  password: shopvox
+  username: jnvcc
+  password: jnvcc
   min_messages: warning
 
 test:
