@@ -165,9 +165,10 @@
    
 
     </div>
-    <% if @event.count != 0%>
+    
     <div class="col-sm-2 well">
       <div class="thumbnail">
+      <% if @event.count != 0%>
         <p>Upcoming Events:</p>
         <%if @event.last.avatar? %>
           <%= image_tag(@event.last.avatar, class: "img-rounded" , height: "70", width: "70")%>
@@ -178,6 +179,25 @@
         <p><%= @event.last.when.strftime("%A, %d %b %Y %I:%M%p")%></p>
         <%=link_to "Info", events_path, class:"btn btn-primary"%>
       </div>
+      <%end%>
+      <div class="thumbnail">
+
+        <p>Recent Joiners:</p>
+        <% @users.order(id: :asc).limit(5).each do |user| %>
+          <%if user.avatar? %>
+          <%=link_to image_tag(user.avatar, class: "img-rounded",  height: "70", width: "70")%>
+         <% else %>
+          <%if user.gender == "false"%>
+            <%=link_to image_tag("/images/boy.png", class: "img-rounded", height: "70", width: "70")%>
+          <%else%>
+            <%=link_to image_tag("/images/girl.png", class: ".img-rounded", height: "70", width: "70")%>
+          <%end %>
+         <%end%>
+         <p><strong><%= link_to user.name, user%></strong></p>
+        <%end%>
+        
+      </div>
+
       <div class="well">
         <p>ADS</p>
       </div>
@@ -185,7 +205,7 @@
         <p>ADS</p>
       </div>
     </div>
-    <%end%>
+    
   </div>
 </div>
 

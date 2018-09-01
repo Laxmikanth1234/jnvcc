@@ -32,7 +32,7 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.order(id: :asc).each do |user| %>
       <tr>
         <td>
          <%if user.avatar? %>
