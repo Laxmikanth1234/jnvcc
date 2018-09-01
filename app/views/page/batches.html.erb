@@ -1,2 +1,64 @@
-<h1>This will be added soon</h1>
+
+<%- model_class = User -%> 
+
+<%if @users.count != 0 %>
+  <h1>Users (<%=@users.count%>)</h1>
+
+<div class="row">
+        <div class="col-sm-12">
+          <div class="well">
+<table class="table table-striped table-bordered" style="width:100%">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Batch</th>
+      <th>Current Location</th>
+      <th>Qualification</th>
+      <th>Profession</th>
+      <th>Industry/Institution</th>
+      <% if current_user.admin == true%>
+      <th colspan="2"></th>
+       <%end%>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+         <%if user.avatar? %>
+          <%=link_to image_tag(user.avatar, class: ".img-rounded", height: "30", width: "30"), user%>
+         <% else %>
+          <%if user.gender == "false"%>
+            <%=link_to image_tag("/images/boy.png", class: ".img-rounded", height: "30", width: "30"), user%>
+          <%else%>
+            <%=link_to image_tag("/images/girl.png", class: ".img-rounded", height: "30", width: "30"), user%>
+          <%end %>
+         <%end%>
+        </td>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+        <td><%= user.mobile %></td>
+        <td><%= user.batch %></td>
+        <td><%= user.current_location %></td>
+        <td><%= user.education_qualification %></td>
+        <td><%= user.profession %></td>
+        <td><%= user.industry %></td>
+        <% if current_user.admin == true%>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<%else%>
+<h1> No one registred yet :( </h1>
+<%end%>
 

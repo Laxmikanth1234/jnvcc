@@ -22,6 +22,12 @@ class PageController < ApplicationController
     @event = Event.all
   end
 
+  def batches
+    @users = User.all
+    if params[:batch]
+       @users = @users.select {|u| u.batch == params[:batch].to_i}
+     end
+  end
   def members
     if current_user
       redirect_to users_path

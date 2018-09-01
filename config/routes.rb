@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'page/activities'
 
   get 'page/events'
+  get 'page/batches'
 
   get 'page/batches'
   get 'page/photos'
