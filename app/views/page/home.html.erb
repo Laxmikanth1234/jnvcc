@@ -183,7 +183,7 @@
       <div class="thumbnail">
 
         <p>Recent Joiners:</p>
-        <% @users.order(id: :asc).limit(5).each do |user| %>
+        <% @users.order(id: :desc).limit(5).each do |user| %>
           <%if user.avatar? %>
           <%=link_to image_tag(user.avatar, class: "img-rounded",  height: "70", width: "70")%>
          <% else %>
