@@ -35,6 +35,10 @@
             <%= f.select :batch, options_for_select(User::BATCH, f.object.batch) ,{:prompt => "Choose your Batch"},label: "Choose your favorite fruit:",class: "form-control" %>
       </div>
       <div class="form-group">
+        <%= f.label :bloodgroup %>
+            <%= f.select :bloodgroup, options_for_select(User::BLOODGROP, f.object.bloodgroup) ,{:prompt => "Select your Blood Group"},label: "Select your Blood Group:",class: "form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.label :current_location %>
         <%= f.text_field :current_location, autofocus: true, class: "form-control" %>
       </div>

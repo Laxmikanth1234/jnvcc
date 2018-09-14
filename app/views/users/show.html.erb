@@ -61,6 +61,7 @@
                   <tr><td><strong>DOB</strong></td><td><%= @user.date_of_birth %></td></tr>
                   <tr><td><strong>Batch</strong></td><td><%= @user.batch %></td></tr>
                   <tr><td><strong>Mobile</strong></td><td><%= @user.mobile %></td></tr>
+                  <tr><td><strong>Bloodgroup</strong></td><td><%= @user.bloodgroup %></td></tr>
                   <tr><td><strong>Current Location</strong></td><td><%= @user.current_location %></td></tr>
                   <tr><td><strong>Qualification</strong></td><td><%= @user.education_qualification %></td></tr>
                   <tr><td><strong>Profession</strong></td><td><%= @user.profession %></td></tr>
@@ -71,9 +72,9 @@
                 </table>
 
 <%if current_user.admin == true%>
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user), class:"btn btn-primary" %> |
 <%end%>
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', users_path, class:"btn btn-primary" %>
               <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-thumbs-up"></span> Like
               </button>

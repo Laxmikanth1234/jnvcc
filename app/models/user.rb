@@ -15,6 +15,7 @@
 #  address, 					   :text
 #  aboutme,						   :text
 #  gender, 						   :string
+#  bloodgroup            :string
 #  active                          :boolean          default(FALSE) need to add
 #  industry                        :string(255) 
 #  :surname, :designation, :facebook, :twitter, :linkedin, :rep?, 
@@ -39,12 +40,13 @@ class User < ApplicationRecord
   validates :email, uniqueness: true 
 
   BATCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 , 25, 26, 27,]
+  BLOODGROP = ['A+', 'A-', 'AB+', 'AB-', 'B+', 'B-', 'O+', 'O-']
   
   # PROFESSION = ["Student", "SoftWare Engineer", "Docter", "Police", "Teacher", "Lower", "need to add more here"]
 
    def self.search(search)
    	if search
-   		where("name ILIKE ? OR email ILIKE ? OR current_location ILIKE ? OR education_qualification ILIKE ? OR industry ILIKE ? OR mobile ILIKE ? OR profession ILIKE ?" , "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")
+   		where("name ILIKE ? OR email ILIKE ? OR current_location ILIKE ? OR education_qualification ILIKE ? OR industry ILIKE ? OR mobile ILIKE ? OR profession ILIKE ? OR bloodgroup ILIKE ?" , "%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")
    	else
    		all
    	end
