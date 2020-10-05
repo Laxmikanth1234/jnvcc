@@ -36,11 +36,12 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   # has_attached_file :avatar, :styles => { :medium => "600x600>", :thumb => "300x300#" }, :default_url => "/images/:style/missing.png"
   # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  validates :name, :surname, :date_of_birth, :gender, :batch, :education_qualification,:current_location,:profession,:industry, presence: true
+  validates :name, :surname, :date_of_birth, :gender, :batch, :admission_class, :passout_class, :education_qualification, :profession,:industry,:native_place, :native_mandal, :current_location, :current_state,:current_country,:working_sector, presence: true
   validates :email, uniqueness: true 
 
   BATCH = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 , 25, 26, 27,]
   BLOODGROP = ['A+', 'A-', 'AB+', 'AB-', 'B+', 'B-', 'O+', 'O-']
+  WORKING_SECTOR = ['Government', 'Private', 'Business', 'Self Employed', 'Student', 'Others']
   
   # PROFESSION = ["Student", "SoftWare Engineer", "Docter", "Police", "Teacher", "Lower", "need to add more here"]
 

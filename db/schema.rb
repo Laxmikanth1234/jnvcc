@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191024151356) do
+ActiveRecord::Schema.define(version: 20201005152432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,17 @@ ActiveRecord::Schema.define(version: 20191024151356) do
     t.boolean  "rep?",                    default: false
     t.string   "avatar"
     t.string   "bloodgroup"
+    t.string   "country_code"
+    t.string   "native_place"
+    t.string   "native_mandal"
+    t.string   "native_pin"
+    t.string   "admission_year"
+    t.string   "passout_year"
+    t.string   "current_state"
+    t.string   "current_country"
+    t.string   "working_sector"
+    t.integer  "admission_class"
+    t.integer  "passout_class"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
