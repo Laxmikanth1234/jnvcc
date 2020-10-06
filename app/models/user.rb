@@ -16,7 +16,7 @@
   #  aboutme,						   :text
   #  gender, 						   :string
   #  bloodgroup            :string
-  #  active                          :boolean          default(FALSE) need to add
+  #  active                          :boolean          default(true) need to add
   #  industry                        :string(255) 
   #  :surname, :designation, :facebook, :twitter, :linkedin, :rep?, 
   #  created_at                      :datetime         not null
