@@ -18,8 +18,10 @@
     <tr>
       <th></th>
       <th>Name</th>
-      <th>Email</th>
-      <th>Mobile</th>
+      <% if current_user.admin == true%>
+        <th>Email</th>
+        <th>Mobile</th>
+      <%end%>
       <th>Batch</th>
       <th>Bloodgroup</th>
       <th>Current Location</th>
@@ -47,8 +49,10 @@
          <%end%>
         </td>
         <td><%= link_to user.name, user %></td>
-        <td><%= user.email %></td>
-        <td><%= user.mobile %></td>
+        <% if current_user.admin == true%>
+          <td><%= user.email %></td>
+          <td><%= user.mobile %></td>
+        <%end%>
         <td><%= user.batch %></td>
         <td><%= user.bloodgroup %></td>
         <td><%= user.current_location %></td>
