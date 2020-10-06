@@ -33,7 +33,7 @@ before_action :authenticate_user!
     respond_to do |format|
     @user = User.find(params[:id])
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to page_home_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
