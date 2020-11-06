@@ -36,6 +36,7 @@
 
   <tbody>
     <% @users.order(id: :asc).each do |user| %>
+      <%if user.is_active?%>
       <tr>
         <td>
          <%if user.avatar? %>
@@ -64,12 +65,16 @@
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
+      <%end%>
     <% end %>
   </tbody>
 </table>
+    <%= will_paginate @posts%>
 </div>
 </div>
+
 </div>
+
 <%else%>
 <h1> No one registred yet :( </h1>
 <%end%>

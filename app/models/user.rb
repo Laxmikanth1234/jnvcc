@@ -59,6 +59,12 @@ class User < ApplicationRecord
         super && is_active
    end
 
+
+   def is_active?
+      is_active
+   end
+
+   self.per_page = 20
   # def self.import(file)
   #   spreadsheet = open_spreadsheet(file)
   #   header = spreadsheet.row(1)
