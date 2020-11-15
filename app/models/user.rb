@@ -31,7 +31,7 @@ class User < ApplicationRecord
   has_many :testimonials
 
 
-  devise :database_authenticatable, :registerable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
   # has_attached_file :avatar, :styles => { :medium => "600x600>", :thumb => "300x300#" }, :default_url => "/images/:style/missing.png"

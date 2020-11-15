@@ -121,7 +121,7 @@
             <%= f.file_field :avatar, class: "file-loading", id: "input-4" %>
       </div>
       <%= flash[:recaptcha_error] %>
-      <%= recaptcha_tags %>
+      <%= recaptcha_tags  theme: 'dark'%>
       <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
     <% end %>
   </div>

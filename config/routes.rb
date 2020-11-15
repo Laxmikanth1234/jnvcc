@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   get 'page/contact'
   root 'page#home'
-  devise_for :users
+  devise_for :users, controllers: {registrations: "registrations", }
   resources :users do 
     collection { post :import }
   end
