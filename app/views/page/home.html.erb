@@ -116,7 +116,7 @@
            <%if activity.user.avatar? %>
           <%= image_tag(activity.user.avatar, class: "img-circle" , height: "65", width: "65 ")%>
          <% else %>
-          <%if activity.user.gender == "false"%>
+          <%if activity.user.gender == "male"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>
           <%else%>
             <%= image_tag("/images/girl.png", class: ".img-rounded", height: "65", width: "65")%>
@@ -187,7 +187,7 @@
           <%if user.avatar? %>
           <%=link_to image_tag(user.avatar, class: "img-rounded",  height: "70", width: "70")%>
          <% else %>
-          <%if user.gender == "false"%>
+          <%if user.gender == "male"%>
             <%=link_to image_tag("/images/boy.png", class: "img-rounded", height: "70", width: "70")%>
           <%else%>
             <%=link_to image_tag("/images/girl.png", class: ".img-rounded", height: "70", width: "70")%>

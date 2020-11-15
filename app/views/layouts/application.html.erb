@@ -93,7 +93,7 @@
          <%if current_user.avatar? %>
           <li class="login-img"><%= image_tag(current_user.avatar, class: "img-circle", height: "30", width: "30")%> <font color="lightgrey"> Hey!!  <b><%=link_to current_user.name, page_mypage_path %></b></font></li>
          <% else %>
-          <%if current_user.gender == "false"%>
+          <%if current_user.gender == "male"%>
             <li class="login-img"><%= image_tag("/images/boy.png", class: ".img-rounded", height: "30", width: "30")%> <font color="lightgrey"> Hay!!  <b><%=link_to current_user.name, page_mypage_path %></b></font></li>
           <%else%>
             <li class="login-img"><%= image_tag("/images/girl.png", class: ".img-rounded", height: "30", width: "30")%> <font color="lightgrey"> Hay!!  <b><%=link_to current_user.name, page_mypage_path %></b></font></li>

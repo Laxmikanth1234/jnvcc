@@ -42,7 +42,7 @@
          <%if user.avatar? %>
           <%=link_to image_tag(user.avatar, class: ".img-rounded", height: "30", width: "30"), user%>
          <% else %>
-          <%if user.gender == "false"%>
+          <%if user.gender == "male"%>
             <%=link_to image_tag("/images/boy.png", class: ".img-rounded", height: "30", width: "30"), user%>
           <%else%>
             <%=link_to image_tag("/images/girl.png", class: ".img-rounded", height: "30", width: "30"), user%>

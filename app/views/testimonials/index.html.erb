@@ -34,7 +34,7 @@
            <%if testimonial.user.avatar? %>
           <%= image_tag(testimonial.user.avatar, class: "img-circle" , height: "65", width: "65 ")%>
          <% else %>
-          <%if testimonial.user.gender == "false"%>
+          <%if testimonial.user.gender == "male"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "65", width: "65")%>
           <%else%>
             <%= image_tag("/images/girl.png", class: ".img-rounded", height: "65", width: "65")%>

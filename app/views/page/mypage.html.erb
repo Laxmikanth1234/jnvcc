@@ -7,7 +7,7 @@
          <%if current_user.avatar? %>
           <%= image_tag(current_user.avatar, class: "img-rounded" , height: "220", width: "220 ")%>
          <% else %>
-          <%if current_user.gender == "false"%>
+          <%if current_user.gender == "male"%>
             <%= image_tag("/images/boy.png", class: ".img-rounded", height: "150", width: "170")%>
           <%else%>
             <%= image_tag("/images/girl.png", class: ".img-rounded", height: "150", width: "170")%>

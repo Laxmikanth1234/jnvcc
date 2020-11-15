@@ -6,10 +6,10 @@
 		<%if comment.user.avatar? %>
           <%= image_tag(comment.user.avatar, class: "img-circle" , height: "20", width: "20 ")%>
          <% else %>
-          <%if comment.user.gender == "false"%>
+          <%if comment.user.gender == "male"%>
             <%= image_tag("/images/boy.png", class: ".img-circle", height: "20", width: "20")%>
           <%else%>
-            <%= image_tag("/images/girl.png", class: ".img-circle", height: "65", width: "20")%>
+            <%= image_tag("/images/girl.png", class: ".img-circle", height: "20", width: "20")%>
           <%end %>
          <%end%>
 
